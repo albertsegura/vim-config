@@ -28,7 +28,7 @@ set lazyredraw
 set number
 set laststatus=2
 set encoding=utf-8
-
+set mouse=a
 
 
 nmap <silent> <A-Up> :wincmd k<CR>
