@@ -12,7 +12,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'godlygeek/csapprox'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'majutsushi/tagbar'
-
+Plugin 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
@@ -36,3 +36,8 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 nmap <F8> :TagbarToggle<CR>
+vnoremap <C-c> "+y
+inoremap <C-v> <C-r><C-p>+
+nnoremap <C-v> i<C-r><C-p>+<ESC>
+ 
+
