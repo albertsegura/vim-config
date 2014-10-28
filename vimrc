@@ -16,6 +16,7 @@ Plugin 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
+" Color schemes and airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline_theme="lucius"
 
@@ -24,13 +25,26 @@ set background=dark
 let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 colorscheme gruvbox
 
+
+" General configuration
+let mapleader="º"
 set lazyredraw
 set number
 set laststatus=2
 set encoding=utf-8
+
+set tabstop=8
+set shiftwidth=8
+set softtabstop=8
+set noexpandtab
+set autoindent
+
+
 set mouse=a
+set showcmd
 
 set hidden
+nmap <silent> <leader>ev :vert new ~/.vimrc<CR>
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
@@ -40,4 +54,3 @@ vnoremap <C-c> "+y
 inoremap <C-v> <C-r><C-p>+
 nnoremap <C-v> i<C-r><C-p>+<ESC>
  
-
