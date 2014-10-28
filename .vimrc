@@ -30,7 +30,7 @@ set laststatus=2
 set encoding=utf-8
 set mouse=a
 
-
+set hidden
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
