@@ -44,13 +44,32 @@ set mouse=a
 set showcmd
 
 set hidden
+
+" Mappings
 nmap <silent> <leader>ev :vert new ~/.vimrc<CR>
+
+"> Buffer mappings
+map <S-Right> :tabnext<CR>
+map <S-Left> :tabprevious<CR>
+
+"> Window mappings
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
+
+"> Tab mappings
+
+
+"> Function buttons
 nmap <F8> :TagbarToggle<CR>
 vnoremap <C-c> "+y
 inoremap <C-v> <C-r><C-p>+
 nnoremap <C-v> i<C-r><C-p>+<ESC>
- 
+
+" 
+map <silent> <C-Up> <C-y>
+map <silent> <C-Down> <C-e>
+
+
+
