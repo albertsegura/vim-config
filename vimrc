@@ -10,12 +10,12 @@ Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-startify'
 Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
 
 " Sometimes used (?)
-Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'godlygeek/tabular'
 
@@ -64,6 +64,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list=1
 "let g:syntastic_auto_loc_list=1
 
+
+"------------------------"
+" User defined functions "
+"------------------------"
 let g:syntastic_toggle_list = 1 " User defined
 function! SyntasticToggleList()
 	if g:syntastic_toggle_list
@@ -75,6 +79,16 @@ function! SyntasticToggleList()
 	endif
 endfunction
 
+let g:tab_identation_mode = 0 " User defined
+function! TabIdentationToggle()
+	if g:tab_identation_mode
+		set tabstop=8 softtabstop=8 shiftwidth=8
+		let g:tab_identation_mode = 0
+	else
+		set tabstop=4 softtabstop=4 shiftwidth=4
+		let g:tab_identation_mode = 1
+	endif
+endfunction
 
 
 "-----------------------"
@@ -140,8 +154,8 @@ cnoreabbrev Qall qall
 "> General mappings
 "------------------
 nmap<silent>	<leader>ev	:vert new ~/.vimrc<CR>
-nmap<silent>	<leader>T	:set tabstop=8 softtabstop=8 shiftwidth=8<CR>
-nmap<silent>	<leader>t	:set tabstop=4 softtabstop=4 shiftwidth=4<CR>
+nmap<silent>	<leader>t	:call TabIdentationToggle()<CR>
+nmap<silent>	<F7>		:NERDTreeToggle<CR>
 nmap<silent>	<F8>		:TagbarToggle<CR>
 nmap<silent>	<F9>		:call SyntasticToggleList()<CR>
 
@@ -174,7 +188,7 @@ inoremap	<C-BS>		<C-w>
 " Movement between tabs
 nnoremap<silent><Tab>		gt
 nnoremap<silent><S-Tab>		gT
-nnoremap<silent><leader>t	:tabnew<CR>
+nnoremap<silent><leader>nt	:tabnew<CR>
 
 " Tabularize 
 nmap		<Leader>=	:Tabularize /=<CR>
