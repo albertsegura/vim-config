@@ -64,7 +64,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list=1
 "let g:syntastic_auto_loc_list=1
 
-let g:syntastic_toggle_list = 1 " user defined
+let g:syntastic_toggle_list = 1 " User defined
 function! SyntasticToggleList()
 	if g:syntastic_toggle_list
 		Errors
@@ -80,10 +80,14 @@ endfunction
 "-----------------------"
 " General configuration "
 "-----------------------"
-set dir=~/.vimswap//
+set dir=~/.vim/vimswap//
 let mapleader="º"
 set lazyredraw
 set number
+syntax on
+set wildmenu		" Status bar visible completition
+
+" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
@@ -102,10 +106,6 @@ set hidden		" Enable hidden buffers
 " Search
 set hlsearch
 set incsearch		" Jump to match while typing search pattern
-
-syntax on
-set ruler
-set number
 
 
 "---------"
