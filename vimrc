@@ -12,6 +12,8 @@ Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-commentary'
+Plugin 'airblade/vim-gitgutter'
 
 " Sometimes used (?)
 Plugin 'tpope/vim-fugitive'
