@@ -16,6 +16,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'terryma/vim-expand-region'
+Plugin 'vimwiki/vimwiki'
 
 " Sometimes used (?)
 Plugin 'tpope/vim-fugitive'
