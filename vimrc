@@ -18,6 +18,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'terryma/vim-expand-region'
 Plugin 'vimwiki/vimwiki'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'lervag/vimtex'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'brookhong/cscope.vim'
 
@@ -70,6 +71,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
 "let g:syntastic_auto_loc_list=1
 
 let g:startify_custom_header = ['']
@@ -141,6 +143,8 @@ autocmd InsertEnter *	syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave *	syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
 highlight EOLWS ctermbg=red guibg=red
 
+autocmd BufRead *.tex setlocal spell spelllang=en_gb
+au BufRead,BufNewFile *.tex setlocal textwidth=80
 
 "----------"
 " Mappings "
@@ -225,6 +229,10 @@ vnoremap	<S-Up>		:m '<-2<CR>gv=gv
 vnoremap	<S-Down>	:m '>+1<CR>gv=gv
 
 
+" Latex
+let g:tex_flavor = 'latex'
+
+execute "set colorcolumn=" . join(range(81,335), ',')
 
 set cscopetag
 set csto=0
@@ -246,3 +254,4 @@ nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
 nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+
