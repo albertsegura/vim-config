@@ -18,6 +18,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'terryma/vim-expand-region'
 Plugin 'vimwiki/vimwiki'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'brookhong/cscope.vim'
 
 " Sometimes used (?)
 Plugin 'tpope/vim-fugitive'
@@ -196,6 +198,7 @@ inoremap	<C-BS>		<C-w>
 nnoremap<silent><Tab>		gt
 nnoremap<silent><S-Tab>		gT
 nnoremap<silent><leader>nt	:tabnew<CR>
+nnoremap<silent><leader>dt	:tabedit %<CR>
 
 " Tabularize 
 nmap		<Leader>=	:Tabularize /=<CR>
@@ -220,3 +223,26 @@ vmap > >gv
 " Move visual selection block
 vnoremap	<S-Up>		:m '<-2<CR>gv=gv
 vnoremap	<S-Down>	:m '>+1<CR>gv=gv
+
+
+
+set cscopetag
+set csto=0
+nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+" s: Find this C symbol
+nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
