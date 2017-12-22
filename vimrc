@@ -1,36 +1,34 @@
 set nocompatible
 set laststatus=2
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Used
-Plugin 'gmarik/vundle'
-Plugin 'bling/vim-airline'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mhinz/vim-startify'
 Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'terryma/vim-expand-region'
-Plugin 'vimwiki/vimwiki'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'lervag/vimtex'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'brookhong/cscope.vim'
 
 " Sometimes used (?)
-Plugin 'tpope/vim-fugitive'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-expand-region'
+Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-surround'
-Plugin 'Lokaltog/vim-easymotion'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'godlygeek/tabular'
 
 " Not Used
 "Plugin 'chriskempson/base16-vim'
-"Plugin 'tomasr/molokai'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'flazz/vim-colorschemes'
 
@@ -54,25 +52,27 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_skip_empty_sections = 1
 let g:airline_theme="gruvbox"
-set laststatus=2
 
 " YCM setup
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 " Syntastic
-let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_always_populate_loc_list=1
+let g:syntastic_aggregate_errors = 1
 " let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
-"let g:syntastic_auto_loc_list=1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:startify_custom_header = ['']
 
@@ -120,9 +120,9 @@ set fileencodings=utf-8
 " Tab identation
 set autoindent
 set noexpandtab		" Don't insert spaces when pressing Tab
-set tabstop=8		" Show existing tab with X spaces width
-set shiftwidth=8	" When indenting with '>', use X spaces width
-set softtabstop=8
+set tabstop=4		" Show existing tab with X spaces width
+set shiftwidth=4	" When indenting with '>', use X spaces width
+set softtabstop=4
 
 set mouse=a
 set showcmd
@@ -150,7 +150,7 @@ au BufRead,BufNewFile *.tex setlocal textwidth=80
 " Mappings "
 "----------"
 
-"> Abbreviations 
+"> Abbreviations
 "---------------
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -204,7 +204,7 @@ nnoremap<silent><S-Tab>		gT
 nnoremap<silent><leader>nt	:tabnew<CR>
 nnoremap<silent><leader>dt	:tabedit %<CR>
 
-" Tabularize 
+" Tabularize
 nmap		<Leader>=	:Tabularize /=<CR>
 vmap		<Leader>=	:Tabularize /=<CR>
 nmap		<Leader>:	:Tabularize /:<CR>
